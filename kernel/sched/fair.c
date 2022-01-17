@@ -3924,7 +3924,7 @@ static inline bool task_fits_capacity(struct task_struct *p,
 	else
 		margin = sched_capacity_margin_up[task_cpu(p)];
 
-	return capacity * 1024 > task_util_est(p) * margin;
+	./kernel/sched/fair.creturn capacity * 1024 > task_util_est(p) * margin;
 }
 
 static inline bool task_fits_max(struct task_struct *p, int cpu)
@@ -10856,7 +10856,7 @@ static int load_balance(int this_cpu, struct rq *this_rq,
 	env.prefer_spread = (prefer_spread_on_idle(this_cpu) &&
 				!((sd->flags & SD_ASYM_CPUCAPACITY) &&
 				 !cpumask_test_cpu(this_cpu,
-						 &asym_cap_sibling_cpus)));
+						 &asym_cap_siblings)));
 
 	cpumask_and(cpus, sched_domain_span(sd), cpu_active_mask);
 
