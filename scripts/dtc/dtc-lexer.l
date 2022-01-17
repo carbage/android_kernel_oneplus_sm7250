@@ -38,7 +38,7 @@ LINECOMMENT	"//".*\n
 #include "srcpos.h"
 #include "dtc-parser.tab.h"
 
-YYLTYPE yylloc;
+extern YYLTYPE yylloc;
 extern bool treesource_error;
 
 /* CAUTION: this will stop working if we ever use yyless() or yyunput() */
@@ -114,7 +114,7 @@ static void PRINTF(1, 2) lexical_error(const char *fmt, ...);
 					yyleng-2);
 			return DT_STRING;
 		}
-
+lin
 <*>"/dts-v1/"	{
 			DPRINT("Keyword: /dts-v1/\n");
 			dts_version = 1;
