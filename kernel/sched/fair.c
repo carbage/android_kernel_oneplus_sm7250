@@ -3903,7 +3903,7 @@ bias_to_this_cpu(struct task_struct *p, int cpu, int start_cpu)
 	if (is_ratp_enable() &&
 			(!(im_rendering(p) && prefer_sched_group(p)) ||
 			(!(is_gmod_enable() && prefer_top(p)))))
-		base_test = cpumask_test_cpu(cpu, &p->cpus_suggested) &&
+		base_test = cpumask_test_cpu(cpu, &p->cpus_requested) &&
 				cpu_active(cpu);
 
 	return base_test && start_cap_test;
