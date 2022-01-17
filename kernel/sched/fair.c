@@ -12053,7 +12053,7 @@ static int idle_balance(struct rq *this_rq, struct rq_flags *rf)
 
 		if (prefer_spread && !force_lb &&
 			(sd->flags & SD_ASYM_CPUCAPACITY) &&
-			!(cpumask_test_cpu(this_cpu, &asym_cap_sibling_cpus)))
+			!(cpumask_test_cpu(this_cpu, &asym_cap_siblings)))
 			avg_idle = this_rq->avg_idle;
 
 		if (avg_idle < curr_cost + sd->max_newidle_lb_cost) {
